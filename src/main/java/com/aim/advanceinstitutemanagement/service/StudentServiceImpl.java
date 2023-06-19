@@ -18,4 +18,17 @@ public class StudentServiceImpl implements StudentService {
         List<Student> studentList = studentRepo.getStudent();
         return studentList;
     }
+
+    @Override
+    public Student getSingleStudent(int studentId) {
+        Student selectedStudent = null;
+        List<Student> students = studentRepo.getStudent();
+        for(Student singleStudent : students){
+
+            if(singleStudent.getId() == studentId){
+                selectedStudent = singleStudent;
+            }
+        }
+        return selectedStudent;
+    }
 }
